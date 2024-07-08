@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Routes To-Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .category {
+            margin-bottom: 20px;
+        }
+
+        .category h3 {
+            color: #2980b9;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .todo-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fafafa;
+        }
+
+        .todo-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .todo-item:last-child {
+            border-bottom: none;
+        }
+
+        .todo-item input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        .todo-item label {
+            flex: 1;
+        }
+
+        .todo-item:hover {
+            background-color: #f0f8ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h2>API Routes To-Do List</h2>
+
+    <div class="category">
+        <h3>Authentication (9 routes)</h3>
+        <ul class="todo-list">
+            <li class="todo-item"><input type="checkbox" id="auth1"> POST /api/v1/auth/admin/login</li>
+            <li class="todo-item"><input type="checkbox" id="auth2"> POST /api/v1/auth/user/email/login</li>
+            <li class="todo-item"><input type="checkbox" id="auth3"> POST /api/v1/auth/user/email/signup</li>
+            <li class="todo-item"><input type="checkbox" id="auth4"> GET /api/v1/auth/google/login</li>
+            <li class="todo-item"><input type="checkbox" id="auth5"> GET /api/v1/googlecallback</li>
+            <li class="todo-item"><input type="checkbox" id="auth6"> GET /api/v1/auth/verifyotp/:role/:email/:otp</li>
+            <li class="todo-item"><input type="checkbox" id="auth7"> POST /api/v1/auth/passwordreset/step1</li>
+            <li class="todo-item"><input type="checkbox" id="auth8"> GET /api/v1/auth/passwordreset</li>
+            <li class="todo-item"><input type="checkbox" id="auth9"> POST /api/v1/auth/passwordreset/step2</li>
+            <li class="todo-item"><input type="checkbox" id="auth10"> POST /api/v1/auth/restaurant/signup</li>
+            <li class="todo-item"><input type="checkbox" id="auth11"> POST /api/v1/auth/restaurant/login</li>
+        </ul>
+    </div>
+
+    <div class="category">
+        <h3>User Management (22 routes)</h3>
+        <ul class="todo-list">
+            <li class="todo-item"><input type="checkbox" id="user1"> GET /api/v1/user/profile</li>
+            <li class="todo-item"><input type="checkbox" id="user2"> POST /api/v1/user/edit</li>
+            <li class="todo-item"><input type="checkbox" id="user3"> GET /api/v1/user/wallet/all</li>
+            <li class="todo-item"><input type="checkbox" id="user4"> GET /api/v1/user/favorites/all</li>
+            <li class="todo-item"><input type="checkbox" id="user5"> POST /api/v1/user/favorites/add</li>
+            <li class="todo-item"><input type="checkbox" id="user6"> DELETE /api/v1/user/favorites/delete</li>
+            <li class="todo-item"><input type="checkbox" id="user7"> GET /api/v1/user/address/all</li>
+            <li class="todo-item"><input type="checkbox" id="user8"> POST /api/v1/user/address/add</li>
+            <li class="todo-item"><input type="checkbox" id="user9"> PATCH /api/v1/user/address/edit</li>
+            <li class="todo-item"><input type="checkbox" id="user10"> DELETE /api/v1/user/address/delete</li>
+            <li class="todo-item"><input type="checkbox" id="user11"> POST /api/v1/user/cart/add</li>
+            <li class="todo-item"><input type="checkbox" id="user12"> GET /api/v1/user/cart/all</li>
+            <li class="todo-item"><input type="checkbox" id="user13"> DELETE /api/v1/user/cart/delete/</li>
+            <li class="todo-item"><input type="checkbox" id="user14"> DELETE /api/v1/user/cart/remove</li>
+            <li class="todo-item"><input type="checkbox" id="user15"> PUT /api/v1/user/cart/update/</li>
+            <li class="todo-item"><input type="checkbox" id="user16"> POST /api/v1/user/order/step1/placeorder</li>
+            <li class="todo-item"><input type="checkbox" id="user17"> POST /api/v1/user/order/step2/initiatepayment</li>
+            <li class="todo-item"><input type="checkbox" id="user18"> POST /api/v1/user/order/step3/razorpaycallback/:orderid</li>
+            <li class="todo-item"><input type="checkbox" id="user19"> GET /api/v1/user/order/step3/stripecallback</li>
+            <li class="todo-item"><input type="checkbox" id="user20"> POST /api/v1/user/order/cancel</li>
+            <li class="todo-item"><input type="checkbox" id="user21"> POST /api/v1/user/order/history</li>
+            <li class="todo-item"><input type="checkbox" id="user22"> GET /api/v1/user/order/invoice/:orderid</li>
+            <li class="todo-item"><input type="checkbox" id="user23"> POST /api/v1/user/order/paymenthistory</li>
+            <li class="todo-item"><input type="checkbox" id="user24"> POST /api/v1/user/order/review</li>
+            <li class="todo-item"><input type="checkbox" id="user25"> POST /api/v1/user/order/rating</li>
+            <li class="todo-item"><input type="checkbox" id="user26"> GET /api/v1/user/coupon/cart/:couponcode</li>
+            <li class="todo-item"><input type="checkbox" id="user27"> GET /api/v1/user/referral/code</li>
+            <li class="todo-item"><input type="checkbox" id="user28"> PATCH /api/v1/user/referral/activate</li>
+            <li class="todo-item"><input type="checkbox" id="user29"> GET /api/v1/user/referral/claim</li>
+            <li class="todo-item"><input type="checkbox" id="user30"> GET /api/v1/user/referral/stats</li>
+        </ul>
+    </div>
+
+    <div class="category">
+        <h3>Restaurant Management (9 routes)</h3>
+        <ul class="todo-list">
+            <li class="todo-item"><input type="checkbox" id="restaurant1"> POST /api/v1/restaurants/edit</li>
+            <li class="todo-item"><input type="checkbox" id="restaurant2"> POST /api/v1/restaurants/products/add</li>
+            <li class="todo-item"><input type="checkbox" id="restaurant3"> POST /api/v1/restaurants/products/edit</li>
+            <li class="todo-item"><input type="checkbox" id="restaurant4"> DELETE /api/v1/restaurants/products/:productid</li>
+            <li class="todo-item"><input type="checkbox" id="restaurant5"> GET /api/v1/restaurants/order/history/:status</li>
+            <li class="todo-item"><input type="checkbox" id="restaurant6"> POST /api/v1/restaurants/order/nextstatus</li>
+            <li class="todo-item"><input type="checkbox" id="restaurant7"> POST /api/v1/restaurants/product/offer/add</li>
+            <li class="todo-item"><input type="checkbox" id="restaurant8"> PUT /api/v1/restaurants/product/offer/remove/:productid</li>
+            <li class="todo-item"><input type="checkbox" id="restaurant9"> GET /api/v1/restaurants/orderitems/excel/all</li>
+            <li class="todo-item"><input type="checkbox" id="restaurant10"> GET /api/v1/restaurants/wallet/all</li>
+        </ul>
+    </div>
+
+    <div class="category">
+        <h3>Admin Operations (11 routes)</h3>
+        <ul class="todo-list">
+            <li class="todo-item"><input type="checkbox" id="admin1"> GET /api/v1/admin/users</li>
+            <li class="todo-item"><input type="checkbox" id="admin2"> GET /api/v1/admin/users/blocked</li>
+            <li class="todo-item"><input type="checkbox" id="admin3"> PUT /api/v1/admin/users/block/:userid</li>
+            <li class="todo-item"><input type="checkbox" id="admin4"> PUT /api/v1/admin/users/unblock/:userid</li>
+            <li class="todo-item"><input type="checkbox" id="admin5"> POST /api/v1/admin/categories/add</li>
+            <li class="todo-item"><input type="checkbox" id="admin6"> PATCH /api/v1/admin/categories/edit</li>
+            <li class="todo-item"><input type="checkbox" id="admin7"> DELETE /api/v1/admin/categories/delete/:categoryid</li>
+            <li class="todo-item"><input type="checkbox" id="admin8"> GET /api/v1/admin/restaurants</li>
+            <li class="todo-item"><input type="checkbox" id="admin9"> PUT /api/v1/admin/restaurants/block/:restaurantid</li>
+            <li class="todo-item"><input type="checkbox" id="admin10"> PUT /api/v1/admin/restaurants/unblock/:restaurantid</li>
+            <li class="todo-item"><input type="checkbox" id="admin11"> POST /api/v1/admin/coupon/create</li>
+            <li class="todo-item"><input type="checkbox" id="admin12"> PATCH /api/v1/admin/coupon/update</li>
+        </ul>
+    </div>
+
+    <div class="category">
+        <h3>Public API (12 routes)</h3>
+        <ul class="todo-list">
+            <li class="todo-item"><input type="checkbox" id="public1"> GET /api/v1/public/coupon/all</li>
+            <li class="todo-item"><input type="checkbox" id="public2"> GET /api/v1/public/categories</li>
+            <li class="todo-item"><input type="checkbox" id="public3"> GET /api/v1/public/categories/products</li>
+            <li class="todo-item"><input type="checkbox" id="public4"> GET /api/v1/public/products</li>
+            <li class="todo-item"><input type="checkbox" id="public5"> GET /api/v1/public/restaurants</li>
+            <li class="todo-item"><input type="checkbox" id="public6"> GET /api/v1/public/restaurants/products/:restaurantid</li>
+            <li class="todo-item"><input type="checkbox" id="public7"> GET /api/v1/public/products/onlyveg</li>
+            <li class="todo-item"><input type="checkbox" id="public8"> GET /api/v1/public/products/newarrivals</li>
+            <li class="todo-item"><input type="checkbox" id="public9"> GET /api/v1/public/products/lowtohigh</li>
+            <li class="todo-item"><input type="checkbox" id="public10"> GET /api/v1/public/products/hightolow</li>
+            <li class="todo-item"><input type="checkbox" id="public11"> GET /api/v1/public/products/offerproducts</li>
+            <li class="todo-item"><input type="checkbox" id="public12"> GET /api/v1/public/report/products/:productid</li>
+            <li class="todo-item"><input type="checkbox" id="public13"> GET /api/v1/public/report/products/best</li>
+            <li class="todo-item"><input type="checkbox" id="public14"> GET /api/v1/public/report/totalorders/all</li>
+        </ul>
+    </div>
+
+    <div class="category">
+        <h3>Miscellaneous (4 routes)</h3>
+        <ul class="todo-list">
+            <li class="todo-item"><input type="checkbox" id="misc1"> GET /api/v1/user/profileimage</li>
+            <li class="todo-item"><input type="checkbox" id="misc2"> POST /api/v1/user/profileimage</li>
+            <li class="todo-item"><input type="checkbox" id="misc3"> GET /api/v1/restaurant/profileimage</li>
+            <li class="todo-item"><input type="checkbox" id="misc4"> POST /api/v1/restaurant/profileimage</li>
+            <li class="todo-item"><input type="checkbox" id="misc5"> GET /api/v1/logout</li>
+            <li class="todo-item"><input type="checkbox" id="misc6"> GET / (Server Health Check)</li>
+        </ul>
+    </div>
+   </div>
+
+    <script>
+        // Function to save checkbox states to localStorage
+        function saveCheckboxStates() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                localStorage.setItem(checkbox.id, checkbox.checked);
+            });
+        }
+
+        // Function to load checkbox states from localStorage
+        function loadCheckboxStates() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                const checked = localStorage.getItem(checkbox.id) === 'true';
+                checkbox.checked = checked;
+            });
+        }
+
+        // Load checkbox states when the page is loaded
+        window.onload = loadCheckboxStates;
+
+        // Save checkbox states when any checkbox is clicked
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', saveCheckboxStates);
+        });
+    </script>
+</body>
+</html>
